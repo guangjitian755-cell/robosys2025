@@ -1,14 +1,16 @@
-#!/usr/bin/bash
+#!/usr/bin/bash -xv
+# SPDX-FileCopyrightText: 2025 Hikaru Yoshida
+# SPDX-License-Identifier: BSD-3-Clause
 
 ng () {
-	echo ${1}gyoume is error
+	echo ${1}行目が違うよ
 	res=1
 }
 
 res=0
 
-a=yamada
-[ "$a" = ueda ] || ng "$LINENO"
-[ "$a" = yamada ] || ng "$LINENO"
+out=$(seq 5 | ./plus)
+[ "$out" = 15 ] || ng "$LINENO"
+[ "$res" = 0 ] && echo OK
 
 exit $res
